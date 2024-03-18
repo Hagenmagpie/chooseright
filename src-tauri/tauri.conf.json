@@ -1,6 +1,6 @@
 {
   "productName": "chooseright",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "identifier": "com.tauri.dev",
   "build": {
     "frontendDist": "../src"
@@ -10,8 +10,8 @@
     "windows": [
       {
         "title": "chooseright",
-        "width": 800,
-        "height": 600
+        "width": 1000,
+        "height": 550
       }
     ],
     "security": {
