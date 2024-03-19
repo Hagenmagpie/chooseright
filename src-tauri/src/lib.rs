@@ -8,8 +8,8 @@ use serde_json::json;
 
 #[tauri::command]
 fn files() -> serde_json::Value {
-    let mut fileMap= get_file_map();
-    return get_random_keys(&fileMap, 4);
+    let mut file_map= get_file_map();
+    return get_random_keys(&file_map, 4);
 }
 
 fn get_file_map() -> HashMap<String, String> {
@@ -62,17 +62,17 @@ fn get_random_keys(map: &HashMap<String, String>, count: usize) -> serde_json::V
         //name_file_map.push(key.to_string(),map.get(&key).unwrap().to_string());
         name_file_map.insert(key.to_string(),map.get(&key).unwrap().to_string());
     }
-    let keys:Vec<String> = name_file_map.values().cloned().collect();
+    //let keys:Vec<String> = name_file_map.values().cloned().collect();
     //打印 keys
-    for (key, value) in map.iter() {
-        println!("{}: {}", key, value);
-    }
+    // for (key, value) in map.iter() {
+    //     println!("{}: {}", key, value);
+    // }
     //从4个key中随机选择一个
     let index = rand::random::<usize>() % name_file_map.len();
     name = name_file_map.keys().nth(index).unwrap().to_string();
     let json = json!({
         "name": name,
-        "list": keys,
+        "maps": name_file_map,
     });
     // 返回 keys
     return json;
